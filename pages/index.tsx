@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from "styled-components"
 
 const Title = styled.p`
-  color: red;
+  color: ${(p): string => p.theme.colors["accent-800"]};
 `
 
 const Index = (): ReactElement => {
