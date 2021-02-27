@@ -1,10 +1,15 @@
 import React, { ReactElement } from 'react'
+import styled from "styled-components"
+
+const Title = styled.p`
+  color: red;
+`
 
 const Index = (): ReactElement => {
   return (
-    <div>
+    <Title>
       Index
-    </div>
+    </Title>
   )
 }
 
