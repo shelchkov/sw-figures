@@ -7,7 +7,7 @@ import { GlobalStyle } from "../src/theme/global-style"
 
 const App = ({ Component, pageProps }: AppProps): ReactElement => (
 	<ThemeProvider theme={theme}>
-    <GlobalStyle />
+		<GlobalStyle />
 		<Component {...pageProps} />
 	</ThemeProvider>
 )

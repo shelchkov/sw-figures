@@ -8,7 +8,7 @@ const Title = styled.p`
 `
 
 const Index = (): ReactElement => (
-	<Layout title="Home">
+	<Layout title="SW-figures | Home">
 		<Title>Index</Title>
 	</Layout>
 )

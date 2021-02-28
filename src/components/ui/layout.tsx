@@ -3,6 +3,8 @@ import Head from "next/head"
 
 import { ComponentWithChildren } from "../../utils/types"
 
+import { Menu } from "./menu"
+
 type Props = ComponentWithChildren<{
 	title: string
 }>
@@ -17,6 +19,7 @@ export const Layout = ({ title, children }: Props): ReactElement => (
 			/>
 		</Head>
 
+		<Menu />
 		{children}
 	</>
 )
