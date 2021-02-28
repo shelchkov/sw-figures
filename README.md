@@ -5,4 +5,4 @@
 ## How to run
 
 1. Run `yarn`;
-2. Run `yarn run dev`.
+2. Run `yarn dev`.

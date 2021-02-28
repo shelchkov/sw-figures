@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react"
 import styled from "styled-components"
+import Link from "next/link"
 
 const MenuContainer = styled.div`
 	height: 120px;
@@ -14,6 +15,10 @@ const Image = styled.img`
 
 export const Menu = (): ReactElement => (
 	<MenuContainer>
-		<Image src="/icons/logo.svg" />
+		<Link href="/">
+			<a>
+				<Image src="/icons/logo.svg" />
+			</a>
+		</Link>
 	</MenuContainer>
 )

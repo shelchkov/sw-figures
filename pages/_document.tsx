@@ -28,7 +28,14 @@ class MyDocument extends Document<DocumentProps> {
 	render(): ReactElement {
 		return (
 			<Html>
-				<Head>{this.props.styles}</Head>
+				<Head>
+					{this.props.styles}
+					<link rel="preconnect" href="https://fonts.gstatic.com" />
+					<link
+						href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap"
+						rel="stylesheet"
+					/>
+				</Head>
 				<body>
 					<Main />
 					<NextScript />
