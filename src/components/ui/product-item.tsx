@@ -20,22 +20,41 @@ const Container = styled.div`
 	background-color: ${(p): string => p.theme.colors["bg-200"]};
 	border-radius: 48px;
 	text-align: center;
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
+		padding: 40px 0;
+	}
 `
 
 const Image = styled.img`
-	height: 255px;
+	height: 256px;
 	margin-bottom: 32px;
 	mix-blend-mode: darken;
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
+		height: 394px;
+	}
+`
+
+const TextContainer = styled.div`
+	max-width: 252px;
+	margin: 0 40px 16px 40px;
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
+		margin-bottom: 24px;
+	}
 `
 
 const Name = styled(Heading600)`
 	margin-bottom: 12px;
 	color: ${(p): string => p.theme.colors["txt-900"]};
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
+		margin-bottom: 16px;
+	}
 `
 
 const Description = styled(Paragraph400)`
-	max-width: 253px;
-	margin-bottom: 16px;
 	color: ${(p): string => p.theme.colors["txt-800"]};
 `
 
@@ -44,8 +63,11 @@ const getPrice = (price: number): string => `Buy $${price.toFixed(2)}`
 export const ProductItem = ({ product }: Props): ReactElement => (
 	<Container>
 		<Image src={product.image} />
-		<Name>{product.name}</Name>
-		<Description>{product.shortDescription}</Description>
+
+		<TextContainer>
+			<Name>{product.name}</Name>
+			<Description>{product.shortDescription}</Description>
+		</TextContainer>
 
 		<Button text={getPrice(product.price)} />
 	</Container>

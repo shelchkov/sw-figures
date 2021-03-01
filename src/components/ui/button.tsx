@@ -14,7 +14,7 @@ const StyledButton = styled.button`
 	font-family: "Rubic", sans-serif;
 	font-size: 18px;
 	font-weight: 700;
-	line-height: 18px;
+	line-height: 100%;
 	border: none;
 	border-radius: 50px;
 	box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.32);
@@ -24,6 +24,12 @@ const StyledButton = styled.button`
 
 	&:hover {
 		background-color: ${(p): string => p.theme.colors["accent-800"]};
+	}
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
+		height: 68px;
+		padding: 22px 32px;
+		font-size: 24px;
 	}
 `
 
