@@ -17,6 +17,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
 	margin: 8px;
 	padding: 24px 0;
 	background-color: ${(p): string => p.theme.colors["bg-200"]};
@@ -26,6 +27,7 @@ const Container = styled.div`
 	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
 		max-width: 356px;
 		padding: 40px 0;
+		margin: 16px 12px;
 	}
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.md}) {
@@ -38,6 +40,7 @@ const Container = styled.div`
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.xl}) {
 		max-width: 512px;
+		margin: 16px;
 	}
 `
 
