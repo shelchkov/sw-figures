@@ -1,6 +1,8 @@
+import Link from "next/link"
 import React, { ReactElement } from "react"
 import styled from "styled-components"
 
+import { getDetailsRoute } from "../../utils/routes"
 import { Product } from "../../utils/types"
 
 import { Button } from "./button"
@@ -86,6 +88,10 @@ export const ProductItem = ({ product }: Props): ReactElement => (
 			<Description>{product.shortDescription}</Description>
 		</TextContainer>
 
-		<Button text={getPrice(product.price)} />
+		<Link href={getDetailsRoute(product.id)}>
+			<a>
+				<Button text={getPrice(product.price)} />
+			</a>
+		</Link>
 	</Container>
 )
