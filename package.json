@@ -8,7 +8,8 @@
     "dev": "next",
     "lint": "eslint \"{src,pages}/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"{src,pages}/**/*.{ts,tsx}\" --quiet --fix",
-    "format": "prettier \"{src,pages}/**/*.{ts,tsx}\" --write"
+    "format": "prettier \"{src,pages}/**/*.{ts,tsx}\" --write",
+    "build": "next build"
   },
   "dependencies": {
     "next": "^10.0.7",

@@ -18,7 +18,7 @@ export const Paragraph900 = styled(Paragraph)`
 	}
 `
 
-export const Paragrah800 = styled(Paragraph)`
+export const Paragraph800 = styled(Paragraph)`
 	font-size: 21px;
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.md}) {
@@ -26,9 +26,10 @@ export const Paragrah800 = styled(Paragraph)`
 	}
 `
 
-export const Paragrah400 = styled(Paragraph)`
+export const Paragraph400 = styled(Paragraph)`
 	font-size: 16px;
 	line-height: 154%;
+	font-weight: 500;
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.md}) {
 		font-size: 18px;

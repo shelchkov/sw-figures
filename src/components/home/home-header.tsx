@@ -5,7 +5,7 @@ import { Heading900 } from "../ui/heading"
 import { Paragraph900 } from "../ui/paragraph"
 
 const Container = styled.div`
-  height 511px;
+  height 512px;
   display: flex;
   align-items: center;
   justify-content: center;
