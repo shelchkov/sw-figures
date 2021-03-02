@@ -13,16 +13,31 @@ interface Props {
 
 const Container = styled.div`
 	min-width: 304px;
+	max-width: 332px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin: 8px;
 	padding: 24px 0;
 	background-color: ${(p): string => p.theme.colors["bg-200"]};
 	border-radius: 48px;
 	text-align: center;
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
+		max-width: 356px;
 		padding: 40px 0;
+	}
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.md}) {
+		max-width: 452px;
+	}
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.lg}) {
+		max-width: 424px;
+	}
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.xl}) {
+		max-width: 512px;
 	}
 `
 
@@ -37,7 +52,6 @@ const Image = styled.img`
 `
 
 const TextContainer = styled.div`
-	max-width: 252px;
 	margin: 0 40px 16px 40px;
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
