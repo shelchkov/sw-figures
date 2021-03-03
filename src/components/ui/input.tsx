@@ -9,6 +9,8 @@ export enum InputType {
 export interface InputProps {
 	type?: InputType
 	placeholder?: string
+	name: string
+	required?: boolean
 }
 
 const StyledInput = styled.input`
@@ -26,6 +28,13 @@ const StyledInput = styled.input`
 export const Input = ({
 	type,
 	placeholder,
+	name,
+	required,
 }: InputProps): ReactElement => (
-	<StyledInput type={type} placeholder={placeholder} />
+	<StyledInput
+		type={type}
+		placeholder={placeholder}
+		name={name}
+		required={required}
+	/>
 )
