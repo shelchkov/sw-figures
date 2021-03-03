@@ -5,6 +5,8 @@ import { ProductDetails } from "../../utils/types"
 import { Heading800 } from "../ui/heading"
 import { Paragraph800 } from "../ui/paragraph"
 
+import { PreOrder } from "./pre-order"
+
 interface Props {
 	product: ProductDetails
 }
@@ -49,6 +51,8 @@ export const ProductCard = ({ product }: Props): ReactElement => (
 				<Title>{product.name}</Title>
 				<Description>{product.description}</Description>
 			</TextContainer>
+
+			<PreOrder />
 		</InfoContainer>
 	</Container>
 )

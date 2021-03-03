@@ -1,12 +1,13 @@
-import React, { ReactElement } from "react"
+import React, { ElementType, ReactElement } from "react"
 import styled from "styled-components"
 
-interface Props {
+export interface ButtonProps {
 	text: string
 	handleClick?: () => void
+	Component?: ElementType
 }
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
 	height: 50px;
 	padding: 16px 24px;
 	color: ${(p): string => p.theme.colors["txt-100"]};
@@ -17,7 +18,7 @@ const StyledButton = styled.button`
 	line-height: 100%;
 	border: none;
 	border-radius: 50px;
-	box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.32);
+	box-shadow: ${(p): string => p.theme.shadows.sh200};
 	transition: background-color 300ms ease-in-out;
 	cursor: pointer;
 	outline: none;
@@ -33,6 +34,12 @@ const StyledButton = styled.button`
 	}
 `
 
-export const Button = ({ text, handleClick }: Props): ReactElement => (
-	<StyledButton onClick={handleClick}>{text}</StyledButton>
-)
+export const Button = ({
+	text,
+	handleClick,
+	Component,
+}: ButtonProps): ReactElement => {
+	const ButtonElement = Component || StyledButton
+
+	return <ButtonElement onClick={handleClick}>{text}</ButtonElement>
+}
