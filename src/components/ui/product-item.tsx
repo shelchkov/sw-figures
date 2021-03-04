@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 import { getDetailsRoute } from "../../utils/routes"
 import { Product } from "../../utils/types"
+import { getPrice } from "../../utils/utils"
 
 import { Button } from "./button"
 import { Heading600 } from "./heading"
@@ -25,6 +26,10 @@ const Container = styled.div`
 	background-color: ${(p): string => p.theme.colors["bg-200"]};
 	border-radius: 48px;
 	text-align: center;
+
+	&:hover {
+		box-shadow: ${(p): string => p.theme.shadows.sh100};
+	}
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
 		max-width: 356px;
@@ -77,8 +82,6 @@ const Description = styled(Paragraph400)`
 	color: ${(p): string => p.theme.colors["txt-800"]};
 `
 
-const getPrice = (price: number): string => `Buy $${price.toFixed(2)}`
-
 export const ProductItem = ({ product }: Props): ReactElement => (
 	<Container>
 		<Image src={product.image} />
@@ -90,7 +93,7 @@ export const ProductItem = ({ product }: Props): ReactElement => (
 
 		<Link href={getDetailsRoute(product.id)}>
 			<a>
-				<Button text={getPrice(product.price)} />
+				<Button text={`Buy $${getPrice(product.price)}`} />
 			</a>
 		</Link>
 	</Container>

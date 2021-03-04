@@ -9,3 +9,7 @@ export interface Product {
 	name: string
 	price: number
 }
+
+export type ProductDetails = Product & {
+	description: string
+}

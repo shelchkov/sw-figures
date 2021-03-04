@@ -8,4 +8,5 @@ export const colors = {
 	"bg-100": "#FFFFFF",
 	"stroke-100": "#D6D8E7",
 	"stroke-200": "#ADB4E8",
+	"off-white": "#FCFCFC",
 }
