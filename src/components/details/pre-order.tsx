@@ -1,13 +1,11 @@
-import React, { ChangeEvent, ReactElement } from "react"
+import React, { FormEvent, ReactElement } from "react"
 
 import { InputType } from "../ui/input"
 import { InputWithButton } from "../ui/input-with-button"
 
 export const PreOrder = (): ReactElement => {
-	const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
+	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
-		const emailInput = event.target[0] as HTMLInputElement
-		console.log(emailInput.value)
 	}
 
 	return (
