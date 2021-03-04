@@ -23,6 +23,14 @@ const StyledInput = styled.input`
 	border: 2px solid ${(p): string => p.theme.colors["stroke-100"]};
 	border-radius: 72px;
 	outline: none;
+
+	&:hover {
+		border-color: ${(p): string => p.theme.colors["stroke-200"]};
+	}
+
+	&:focus {
+		border-color: ${(p): string => p.theme.colors["accent-800"]};
+	}
 `
 
 export const Input = ({
