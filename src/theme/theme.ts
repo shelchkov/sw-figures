@@ -7,3 +7,5 @@ export const theme = {
 	breakpoints,
 	shadows,
 }
+
+export type Theme = typeof theme
