@@ -26,6 +26,7 @@ const Container = styled.div`
 	background-color: ${(p): string => p.theme.colors["bg-200"]};
 	border-radius: 48px;
 	text-align: center;
+	overflow: hidden;
 
 	&:hover {
 		box-shadow: ${(p): string => p.theme.shadows.sh100};
