@@ -2,6 +2,7 @@ import React, { ReactElement } from "react"
 import styled from "styled-components"
 
 import { ProductDetails } from "../../utils/types"
+import { MainContainer } from "../ui/containers"
 import { Heading800 } from "../ui/heading"
 import { Paragraph800 } from "../ui/paragraph"
 
@@ -11,11 +12,10 @@ interface Props {
 	product: ProductDetails
 }
 
-const Container = styled.div`
+const Container = styled(MainContainer)`
 	display: flex;
+
 	padding: 0 80px;
-	max-width: 1600px;
-	margin: 0 auto 88px auto;
 	background-color: ${(p): string => p.theme.colors["bg-200"]};
 	border-radius: 48px;
 `

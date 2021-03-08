@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import { useVisibility } from "../../effects/use-visibility"
 
+import { MainContainer } from "./containers"
 import { Paragraph400 } from "./paragraph"
 
 interface Props {
@@ -10,27 +11,20 @@ interface Props {
 	loadNext?: () => void
 }
 
-const Container = styled.div`
-	margin: 16px;
+const Container = styled(MainContainer)`
+	margin-top: 16px;
 	text-align: center;
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
 		margin-top: 44px;
-		margin-bottom: 44px;
 	}
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.md}) {
-		margin: 64px 24px;
+		margin-top: 64px;
 	}
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.lg}) {
-		margin: 88px 40px;
-	}
-
-	@media (min-width: ${(p): string => p.theme.breakpoints.xl}) {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 1600px;
+		margin-top: 88px;
 	}
 `
 
