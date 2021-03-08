@@ -20,7 +20,7 @@ const Container = styled.div`
 	}
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.md}) {
-		margin: 65px 24px;
+		margin: 64px 24px;
 	}
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.lg}) {

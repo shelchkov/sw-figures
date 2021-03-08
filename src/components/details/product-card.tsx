@@ -15,7 +15,7 @@ const Container = styled.div`
 	display: flex;
 	padding: 0 80px;
 	max-width: 1600px;
-	margin: 0 auto;
+	margin: 0 auto 88px auto;
 	background-color: ${(p): string => p.theme.colors["bg-200"]};
 	border-radius: 48px;
 `
