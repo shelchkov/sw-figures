@@ -29,7 +29,7 @@ const Image = styled.img`
 	mix-blend-mode: darken;
 	width: 100%;
 	max-width: 400px;
-	height: fit-content;
+	height: auto;
 	margin: 0 auto;
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.lg}) {
