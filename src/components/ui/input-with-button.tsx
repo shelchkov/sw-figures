@@ -13,7 +13,7 @@ const buttonWidth = 230
 
 const Container = styled.div`
 	position: relative;
-	width: fit-content;
+	width: 100%;
 `
 
 const StyledInput = styled(Input)`

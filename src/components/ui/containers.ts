@@ -25,3 +25,17 @@ export const MainContainer = styled.div`
 		margin-right: auto;
 	}
 `
+
+export const MobileContainer = styled.div`
+	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
+		display: none;
+	}
+`
+
+export const NotMobileContainer = styled.div`
+	display: none;
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
+		display: block;
+	}
+`
