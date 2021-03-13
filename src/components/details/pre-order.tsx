@@ -30,13 +30,9 @@ const InputContainer = styled.div`
 	margin-bottom: 12px;
 `
 
-const inputs = {
-	email: "email",
-}
+const inputs = { email: "email" }
 
-const buttonProps: ButtonProps = {
-	text: "Pre-order Now",
-}
+const buttonProps: ButtonProps = { text: "Pre-order Now" }
 
 const initInputProps: InputProps = {
 	type: InputType.EMAIL,
@@ -94,10 +90,7 @@ export const PreOrder = (): ReactElement => {
 			<NotMobileContainer>
 				<InputWithButton
 					buttonProps={buttonProps}
-					inputProps={{
-						...inputProps,
-						reference: emailInput,
-					}}
+					inputProps={{ ...inputProps, reference: emailInput }}
 				/>
 			</NotMobileContainer>
 

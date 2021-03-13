@@ -9,4 +9,5 @@ export const colors = {
 	"stroke-100": "#D6D8E7",
 	"stroke-200": "#ADB4E8",
 	"off-white": "#FCFCFC",
+	"modal-backdrop": "rgba(0, 0, 0, 0.1)",
 }
