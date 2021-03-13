@@ -2,6 +2,7 @@ import Link from "next/link"
 import React, { ReactElement } from "react"
 import styled from "styled-components"
 
+import { getImageUrl } from "../../api/endpoints"
 import { getDetailsRoute } from "../../utils/routes"
 import { Product } from "../../utils/types"
 import { getPrice } from "../../utils/utils"
@@ -85,7 +86,7 @@ const Description = styled(Paragraph400)`
 
 export const ProductItem = ({ product }: Props): ReactElement => (
 	<Container>
-		<Image src={product.image} />
+		<Image src={getImageUrl(product.image)} />
 
 		<TextContainer>
 			<Name>{product.name}</Name>
