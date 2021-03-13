@@ -1,11 +1,3 @@
-import React, { ReactElement } from "react"
-
-import { Layout } from "../../src/components/ui/layout"
-
-const DetailsPage = (): ReactElement => (
-	<Layout title="SW-figures | details">
-		<></>
-	</Layout>
-)
+import { DetailsPage } from "../../src/components/details/details.page"
 
 export default DetailsPage

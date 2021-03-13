@@ -13,3 +13,10 @@ export interface Product {
 export type ProductDetails = Product & {
 	description: string
 }
+
+export interface DetailsResponse {
+	data: {
+		product: ProductDetails
+		relatedProducts: Product[]
+	}
+}

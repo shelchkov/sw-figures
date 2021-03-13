@@ -1,13 +1,17 @@
 import React, { ReactElement } from "react"
 import styled from "styled-components"
 
+import { getImageUrl } from "../../api/endpoints"
 import { ProductDetails } from "../../utils/types"
 import { MainContainer } from "../ui/containers"
 
+import { Loading } from "./loading"
 import { ProductCardInfo } from "./product-card-info"
 
 interface Props {
-	product: ProductDetails
+	product: ProductDetails | undefined
+	isLoading: boolean
+	error?: string
 }
 
 const Background = styled.div`
@@ -40,12 +44,20 @@ const Image = styled.img`
 	}
 `
 
-export const ProductCard = ({ product }: Props): ReactElement => (
+export const ProductCard = ({
+	product,
+	isLoading,
+	error,
+}: Props): ReactElement => (
 	<MainContainer>
-		<Background>
-			<Image src={product.image} />
+		{product ? (
+			<Background>
+				<Image src={getImageUrl(product.image)} />
 
-			<ProductCardInfo {...product} />
-		</Background>
+				<ProductCardInfo {...product} />
+			</Background>
+		) : (
+			<Loading isLoading={isLoading} error={error} />
+		)}
 	</MainContainer>
 )
