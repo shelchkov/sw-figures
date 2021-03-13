@@ -12,7 +12,7 @@ interface Props {
 	product: ProductDetails
 }
 
-const Container = styled(MainContainer)`
+const Background = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 0 0 24px 0;
@@ -87,16 +87,18 @@ const Description = styled(Paragraph800)`
 `
 
 export const ProductCard = ({ product }: Props): ReactElement => (
-	<Container>
-		<Image src={product.image} />
+	<MainContainer>
+		<Background>
+			<Image src={product.image} />
 
-		<InfoContainer>
-			<TextContainer>
-				<Title>{product.name}</Title>
-				<Description>{product.description}</Description>
-			</TextContainer>
+			<InfoContainer>
+				<TextContainer>
+					<Title>{product.name}</Title>
+					<Description>{product.description}</Description>
+				</TextContainer>
 
-			<PreOrder />
-		</InfoContainer>
-	</Container>
+				<PreOrder />
+			</InfoContainer>
+		</Background>
+	</MainContainer>
 )

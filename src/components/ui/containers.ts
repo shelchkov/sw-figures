@@ -20,9 +20,11 @@ export const MainContainer = styled.div`
 	}
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.xl}) {
-		max-width: 1600px;
+		max-width: 1680px;
 		margin-left: auto;
 		margin-right: auto;
+		padding-left: 40px;
+		padding-right: 40px;
 	}
 `
 
