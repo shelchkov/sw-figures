@@ -10,7 +10,12 @@ import { ProductItems } from "../ui/product-items"
 import { HomeHeader } from "./home-header"
 
 export const HomePage = (): ReactElement => {
-	const { data, isLoading, getNextPage } = useGetDataPage<Product>({
+	const {
+		data,
+		isLoading,
+		error,
+		getNextPage,
+	} = useGetDataPage<Product>({
 		getUrl: getProductsUrl,
 	})
 
@@ -20,7 +25,11 @@ export const HomePage = (): ReactElement => {
 
 			<ProductItems products={data || []} />
 
-			<ListEnd isLoading={isLoading} loadNext={getNextPage} />
+			<ListEnd
+				isLoading={isLoading}
+				loadNext={getNextPage}
+				error={error}
+			/>
 		</Layout>
 	)
 }
