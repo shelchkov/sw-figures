@@ -6,8 +6,10 @@ import { MainContainer } from "../ui/containers"
 import { Heading700 } from "../ui/heading"
 import { ProductItems } from "../ui/product-items"
 
+import { NothingFound } from "./nothing-found"
+
 interface Props {
-	products: Product[]
+	products: Product[] | undefined
 }
 
 const Container = styled.div`
@@ -37,6 +39,10 @@ export const RelatedFigures = ({ products }: Props): ReactElement => (
 			<Heading700>Related Figures</Heading700>
 		</TextContainer>
 
-		<ProductItems products={products} />
+		{products && products.length > 0 ? (
+			<ProductItems products={products} />
+		) : (
+			<NothingFound />
+		)}
 	</Container>
 )
