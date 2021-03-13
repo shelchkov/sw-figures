@@ -27,13 +27,18 @@ const Container = styled.div`
 	position: fixed;
 	left: 50%;
 	top: 50%;
-	width: 400px;
-	height: 400px;
+	width: 250px;
+	height: 250px;
 	padding: 32px;
 	background-color: ${(p): string => p.theme.colors["bg-100"]};
 	border: 1px solid ${(p): string => p.theme.colors["stroke-100"]};
 	border-radius: 16px;
 	transform: translate(-50%, -50%);
+
+	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
+		width: 360px;
+		height: 300px;
+	}
 `
 
 export const Modal = ({

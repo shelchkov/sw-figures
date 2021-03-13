@@ -16,6 +16,8 @@ import { Input, InputProps, InputType } from "../ui/input"
 import { InputWithButton } from "../ui/input-with-button"
 import { Modal } from "../ui/modal"
 
+import { PreOrderModal } from "./pre-order-modal"
+
 const StyledForm = styled.form`
 	max-width: 740px;
 
@@ -107,7 +109,7 @@ export const PreOrder = (): ReactElement => {
 			</MobileContainer>
 
 			<Modal isOpen={isOpen} close={closeModal}>
-				<div>Hey</div>
+				<PreOrderModal message="Text" close={closeModal} />
 			</Modal>
 		</StyledForm>
 	)
