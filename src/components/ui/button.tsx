@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 export interface ButtonProps {
 	text: string
+	isDisabled?: boolean
 	handleClick?: () => void
 	Component?: ElementType
 }
@@ -36,10 +37,15 @@ export const StyledButton = styled.button`
 
 export const Button = ({
 	text,
+	isDisabled,
 	handleClick,
 	Component,
 }: ButtonProps): ReactElement => {
 	const ButtonElement = Component || StyledButton
 
-	return <ButtonElement onClick={handleClick}>{text}</ButtonElement>
+	return (
+		<ButtonElement onClick={handleClick} disabled={isDisabled}>
+			{text}
+		</ButtonElement>
+	)
 }

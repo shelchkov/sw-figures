@@ -35,7 +35,7 @@ const InputContainer = styled.div`
 
 const inputs = { email: "email" }
 
-const buttonProps: ButtonProps = { text: "Pre-order Now" }
+const initButtonProps: ButtonProps = { text: "Pre-order Now" }
 
 const initInputProps: InputProps = {
 	type: InputType.EMAIL,
@@ -51,6 +51,7 @@ export const PreOrder = (): ReactElement => {
 	const emailInput = useRef<HTMLInputElement>(null)
 	const router = useRouter()
 	const [modalMessage, setModalMessage] = useState<string>()
+	const [isSubmitting, setIsSubmitting] = useState(false)
 
 	const { isLess } = useWidth({
 		breakpoint: parseInt(theme.breakpoints.sm),
@@ -80,14 +81,17 @@ export const PreOrder = (): ReactElement => {
 		event.preventDefault()
 		const email = formValues.current[inputs.email]
 
-		if (!id) {
+		if (!id || !email || isSubmitting) {
 			return
 		}
+
+		setIsSubmitting(true)
 
 		const data = await sendOrderRequest(parseInt(id as string), email)
 		setModalMessage(getOrderRequestMessage(data))
 
 		setIsOpen(true)
+		setIsSubmitting(false)
 	}
 
 	const closeModal = () => setIsOpen(false)
@@ -100,6 +104,11 @@ export const PreOrder = (): ReactElement => {
 	const inputProps: InputProps = {
 		...initInputProps,
 		onChange: handleInputChange,
+	}
+
+	const buttonProps: ButtonProps = {
+		...initButtonProps,
+		isDisabled: isSubmitting,
 	}
 
 	return (
