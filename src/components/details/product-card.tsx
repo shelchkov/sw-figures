@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react"
 import styled from "styled-components"
 
+import { getImageUrl } from "../../api/endpoints"
 import { ProductDetails } from "../../utils/types"
 import { MainContainer } from "../ui/containers"
 
@@ -43,7 +44,7 @@ const Image = styled.img`
 export const ProductCard = ({ product }: Props): ReactElement => (
 	<MainContainer>
 		<Background>
-			<Image src={product.image} />
+			<Image src={getImageUrl(product.image)} />
 
 			<ProductCardInfo {...product} />
 		</Background>
