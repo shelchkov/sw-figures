@@ -5,3 +5,5 @@ export const getProductsUrl = (page = 1): string =>
 
 export const getImageUrl = (image: string): string =>
 	`${apiUrl}/${image}`
+
+export const orderRequestUrl = `${apiUrl}/api/pre-order`
