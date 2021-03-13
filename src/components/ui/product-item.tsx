@@ -18,6 +18,7 @@ interface Props {
 const Container = styled.div`
 	min-width: 304px;
 	max-width: 332px;
+	height: fit-content;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
