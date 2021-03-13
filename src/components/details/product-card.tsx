@@ -3,10 +3,8 @@ import styled from "styled-components"
 
 import { ProductDetails } from "../../utils/types"
 import { MainContainer } from "../ui/containers"
-import { Heading800 } from "../ui/heading"
-import { Paragraph800 } from "../ui/paragraph"
 
-import { PreOrder } from "./pre-order"
+import { ProductCardInfo } from "./product-card-info"
 
 interface Props {
 	product: ProductDetails
@@ -42,63 +40,12 @@ const Image = styled.img`
 	}
 `
 
-const InfoContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 0 24px;
-
-	@media (min-width: ${(p): string => p.theme.breakpoints.sm}) {
-		padding: 0 36px;
-	}
-
-	@media (min-width: ${(p): string => p.theme.breakpoints.md}) {
-		padding: 0 60px;
-	}
-
-	@media (min-width: ${(p): string => p.theme.breakpoints.xl}) {
-		width: 50%;
-		margin-left: auto;
-		padding: 0;
-	}
-`
-
-const TextContainer = styled.div`
-	@media (min-width: ${(p): string => p.theme.breakpoints.xl}) {
-		max-width: 648px;
-	}
-`
-
-const Title = styled(Heading800)`
-	margin-bottom: 16px;
-	font-size: 32px;
-
-	@media (min-width: ${(p): string => p.theme.breakpoints.xl}) {
-		margin-bottom: 32px;
-	}
-`
-
-const Description = styled(Paragraph800)`
-	margin-bottom: 32px;
-
-	@media (min-width: ${(p): string => p.theme.breakpoints.xl}) {
-		margin-bottom: 64px;
-	}
-`
-
 export const ProductCard = ({ product }: Props): ReactElement => (
 	<MainContainer>
 		<Background>
 			<Image src={product.image} />
 
-			<InfoContainer>
-				<TextContainer>
-					<Title>{product.name}</Title>
-					<Description>{product.description}</Description>
-				</TextContainer>
-
-				<PreOrder />
-			</InfoContainer>
+			<ProductCardInfo {...product} />
 		</Background>
 	</MainContainer>
 )
