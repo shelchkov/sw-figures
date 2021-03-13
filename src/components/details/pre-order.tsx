@@ -1,3 +1,4 @@
+import { useRouter } from "next/router"
 import React, {
 	ChangeEvent,
 	FormEvent,
@@ -8,8 +9,10 @@ import React, {
 } from "react"
 import styled from "styled-components"
 
+import { sendOrderRequest } from "../../api/send-order-request"
 import { useWidth } from "../../effects/use-width"
 import { theme } from "../../theme/theme"
+import { getOrderRequestMessage } from "../../utils/utils"
 import { Button, ButtonProps } from "../ui/button"
 import { MobileContainer, NotMobileContainer } from "../ui/containers"
 import { Input, InputProps, InputType } from "../ui/input"
@@ -46,6 +49,8 @@ export const PreOrder = (): ReactElement => {
 	const formValues = useRef<Record<string, string>>({})
 	const mobileEmailInput = useRef<HTMLInputElement>(null)
 	const emailInput = useRef<HTMLInputElement>(null)
+	const router = useRouter()
+	const [modalMessage, setModalMessage] = useState<string>()
 
 	const { isLess } = useWidth({
 		breakpoint: parseInt(theme.breakpoints.sm),
@@ -67,9 +72,21 @@ export const PreOrder = (): ReactElement => {
 		}
 	}, [isLess])
 
-	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+	const { id } = router.query
+
+	const handleSubmit = async (
+		event: FormEvent<HTMLFormElement>,
+	): Promise<void> => {
 		event.preventDefault()
-		console.log(formValues.current[inputs.email])
+		const email = formValues.current[inputs.email]
+
+		if (!id) {
+			return
+		}
+
+		const data = await sendOrderRequest(parseInt(id as string), email)
+		setModalMessage(getOrderRequestMessage(data))
+
 		setIsOpen(true)
 	}
 
@@ -102,7 +119,7 @@ export const PreOrder = (): ReactElement => {
 			</MobileContainer>
 
 			<Modal isOpen={isOpen} close={closeModal}>
-				<PreOrderModal message="Text" close={closeModal} />
+				<PreOrderModal message={modalMessage} close={closeModal} />
 			</Modal>
 		</StyledForm>
 	)
