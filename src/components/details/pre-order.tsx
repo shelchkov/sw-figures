@@ -54,12 +54,18 @@ export const PreOrder = (): ReactElement => {
 	})
 
 	useEffect(() => {
-		if (mobileEmailInput.current) {
-			mobileEmailInput.current.required = !!isLess
+		const mobileCur = mobileEmailInput.current
+		const cur = emailInput.current
+		const inputValue = formValues.current[inputs.email] || ""
+
+		if (mobileCur) {
+			mobileCur.required = !!isLess
+			mobileCur.value = inputValue
 		}
 
-		if (emailInput.current) {
-			emailInput.current.required = !isLess
+		if (cur) {
+			cur.required = !isLess
+			cur.value = inputValue
 		}
 	}, [isLess])
 

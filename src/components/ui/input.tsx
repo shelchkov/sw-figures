@@ -15,7 +15,7 @@ export interface InputProps {
 	placeholder?: string
 	name: string
 	required?: boolean
-	reference?: MutableRefObject<HTMLInputElement>
+	reference?: MutableRefObject<HTMLInputElement | null>
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
