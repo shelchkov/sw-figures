@@ -1,12 +1,7 @@
 import React, { ReactElement } from "react"
 
-import { HomeHeader } from "../src/components/home/home-header"
-import { Layout } from "../src/components/ui/layout"
+import { HomePage } from "../src/components/home/home.page"
 
-const Index = (): ReactElement => (
-	<Layout title="SW-figures | Home">
-		<HomeHeader />
-	</Layout>
-)
+const Index = (): ReactElement => <HomePage />
 
 export default Index

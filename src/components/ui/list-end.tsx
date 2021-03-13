@@ -8,6 +8,7 @@ import { Paragraph400 } from "./paragraph"
 
 interface Props {
 	isLoading?: boolean
+	error?: string
 	loadNext?: () => void
 }
 
@@ -30,6 +31,7 @@ const Container = styled(MainContainer)`
 
 export const ListEnd = ({
 	isLoading,
+	error,
 	loadNext,
 }: Props): ReactElement => {
 	const containerRef = createRef<HTMLDivElement>()
@@ -41,11 +43,21 @@ export const ListEnd = ({
 		}
 	}, [isVisible, loadNext, isLoading])
 
+	const message = (() => {
+		if (error) {
+			return `Error occured: ${error}`
+		}
+
+		if (isLoading) {
+			return "Loading..."
+		}
+
+		return "You've reached the end."
+	})()
+
 	return (
 		<Container ref={containerRef}>
-			<Paragraph400>
-				{isLoading ? "Loading..." : "You've reached the end."}
-			</Paragraph400>
+			<Paragraph400>{message}</Paragraph400>
 		</Container>
 	)
 }
