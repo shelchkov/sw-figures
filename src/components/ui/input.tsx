@@ -1,4 +1,8 @@
-import React, { ReactElement } from "react"
+import React, {
+	ChangeEvent,
+	MutableRefObject,
+	ReactElement,
+} from "react"
 import styled from "styled-components"
 
 export enum InputType {
@@ -11,6 +15,8 @@ export interface InputProps {
 	placeholder?: string
 	name: string
 	required?: boolean
+	reference?: MutableRefObject<HTMLInputElement | null>
+	onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 const StyledInput = styled.input`
@@ -43,11 +49,15 @@ export const Input = ({
 	placeholder,
 	name,
 	required,
+	reference,
+	onChange,
 }: InputProps): ReactElement => (
 	<StyledInput
 		type={type}
 		placeholder={placeholder}
 		name={name}
 		required={required}
+		onChange={onChange}
+		ref={reference}
 	/>
 )

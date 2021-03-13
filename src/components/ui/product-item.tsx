@@ -1,15 +1,12 @@
-import Link from "next/link"
 import React, { ReactElement } from "react"
 import styled from "styled-components"
 
 import { getImageUrl } from "../../api/endpoints"
-import { getDetailsRoute } from "../../utils/routes"
 import { Product } from "../../utils/types"
-import { getPrice } from "../../utils/utils"
 
-import { Button } from "./button"
 import { Heading600 } from "./heading"
 import { Paragraph400 } from "./paragraph"
+import { ProductItemButton } from "./product-item-button"
 
 interface Props {
 	product: Product
@@ -94,10 +91,6 @@ export const ProductItem = ({ product }: Props): ReactElement => (
 			<Description>{product.shortDescription}</Description>
 		</TextContainer>
 
-		<Link href={getDetailsRoute(product.id)}>
-			<a>
-				<Button text={`Buy $${getPrice(product.price)}`} />
-			</a>
-		</Link>
+		<ProductItemButton {...product} />
 	</Container>
 )
