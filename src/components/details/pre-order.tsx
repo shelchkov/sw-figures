@@ -1,19 +1,20 @@
-import React, { FormEvent, ReactElement } from "react"
+import React, {
+	ChangeEvent,
+	FormEvent,
+	ReactElement,
+	useEffect,
+	useRef,
+	useState,
+} from "react"
 import styled from "styled-components"
 
-import { Button } from "../ui/button"
+import { useWidth } from "../../effects/use-width"
+import { theme } from "../../theme/theme"
+import { Button, ButtonProps } from "../ui/button"
 import { MobileContainer, NotMobileContainer } from "../ui/containers"
-import { Input, InputType } from "../ui/input"
+import { Input, InputProps, InputType } from "../ui/input"
 import { InputWithButton } from "../ui/input-with-button"
-
-const buttonProps = { text: "Pre-order Now" }
-
-const inputProps = {
-	type: InputType.EMAIL,
-	placeholder: "Email",
-	name: "email",
-	required: true,
-}
+import { Modal } from "../ui/modal"
 
 const StyledForm = styled.form`
 	max-width: 740px;
@@ -27,9 +28,57 @@ const InputContainer = styled.div`
 	margin-bottom: 12px;
 `
 
+const inputs = {
+	email: "email",
+}
+
+const buttonProps: ButtonProps = {
+	text: "Pre-order Now",
+}
+
+const initInputProps: InputProps = {
+	type: InputType.EMAIL,
+	placeholder: "Email",
+	name: inputs.email,
+	required: true,
+}
+
 export const PreOrder = (): ReactElement => {
+	const [isOpen, setIsOpen] = useState(false)
+	const formValues = useRef<Record<string, string>>({})
+	const mobileEmailInput = useRef<HTMLInputElement>(null)
+	const emailInput = useRef<HTMLInputElement>(null)
+
+	const { isLess } = useWidth({
+		breakpoint: parseInt(theme.breakpoints.sm),
+	})
+
+	useEffect(() => {
+		if (mobileEmailInput.current) {
+			mobileEmailInput.current.required = !!isLess
+		}
+
+		if (emailInput.current) {
+			emailInput.current.required = !isLess
+		}
+	}, [isLess])
+
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
+		console.log(formValues.current[inputs.email])
+		setIsOpen(true)
+	}
+
+	const closeModal = () => setIsOpen(false)
+
+	const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = event.currentTarget
+		formValues.current[name] = value
+	}
+
+	const inputProps: InputProps = {
+		...initInputProps,
+		onChange: handleInputChange,
 	}
 
 	return (
@@ -37,16 +86,23 @@ export const PreOrder = (): ReactElement => {
 			<NotMobileContainer>
 				<InputWithButton
 					buttonProps={buttonProps}
-					inputProps={inputProps}
+					inputProps={{
+						...inputProps,
+						reference: emailInput,
+					}}
 				/>
 			</NotMobileContainer>
 
 			<MobileContainer>
 				<InputContainer>
-					<Input {...inputProps} />
+					<Input {...inputProps} reference={mobileEmailInput} />
 				</InputContainer>
 				<Button {...buttonProps} />
 			</MobileContainer>
+
+			<Modal isOpen={isOpen} close={closeModal}>
+				<div>Hey</div>
+			</Modal>
 		</StyledForm>
 	)
 }
