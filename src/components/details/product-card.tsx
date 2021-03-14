@@ -20,6 +20,7 @@ const Background = styled.div`
 	padding: 0 0 24px 0;
 	background-color: ${(p): string => p.theme.colors["bg-200"]};
 	border-radius: 48px;
+	overflow: hidden;
 
 	@media (min-width: ${(p): string => p.theme.breakpoints.xl}) {
 		padding: 0 80px;
