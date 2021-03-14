@@ -23,7 +23,7 @@ export const DetailsPage = (): ReactElement => {
 	const relatedProducts = data && data.data && data.data.relatedProducts
 
 	useEffect(() => {
-		id && !data && getData(getDetailsUrl(id as string))
+		id && getData(getDetailsUrl(id as string))
 	}, [id])
 
 	return (

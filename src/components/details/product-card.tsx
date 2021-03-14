@@ -50,7 +50,7 @@ export const ProductCard = ({
 	error,
 }: Props): ReactElement => (
 	<MainContainer>
-		{product ? (
+		{product && !isLoading && !error ? (
 			<Background>
 				<Image src={getImageUrl(product.image)} />
 
