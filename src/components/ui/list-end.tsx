@@ -38,8 +38,8 @@ export const ListEnd = ({
 	const { isVisible } = useVisibility({ reference: containerRef })
 
 	useEffect(() => {
-		if (isVisible) {
-			loadNext && !isLoading && loadNext()
+		if (isVisible && loadNext && !isLoading) {
+			loadNext()
 		}
 	}, [isVisible, loadNext, isLoading])
 

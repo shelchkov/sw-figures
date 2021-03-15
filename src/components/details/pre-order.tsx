@@ -116,13 +116,13 @@ export const PreOrder = (): ReactElement => {
 			<NotMobileContainer>
 				<InputWithButton
 					buttonProps={buttonProps}
-					inputProps={{ ...inputProps, reference: emailInput }}
+					inputProps={{ ...inputProps, ref: emailInput }}
 				/>
 			</NotMobileContainer>
 
 			<MobileContainer>
 				<InputContainer>
-					<Input {...inputProps} reference={mobileEmailInput} />
+					<Input {...inputProps} ref={mobileEmailInput} />
 				</InputContainer>
 				<Button {...buttonProps} />
 			</MobileContainer>
