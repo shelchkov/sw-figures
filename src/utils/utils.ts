@@ -15,10 +15,10 @@ export const getOrderRequestMessage = (
 	}
 
 	if (errors) {
-		const fieldsErrors = Object.values(errors)
+		const [fieldError] = Object.entries(errors)
 
-		if (fieldsErrors.length > 0) {
-			const [field, errorMessage] = fieldsErrors[0]
+		if (fieldError) {
+			const [field, errorMessage] = fieldError
 
 			return `Error in "${field}": ${errorMessage}`
 		}
